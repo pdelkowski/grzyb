@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+{%block body %}
+
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        {% for message in messages %}
+          <p>Message:</p>
+          <small>{{ message }}</small>
+        {% endfor %}
+    {% endif %}
+  {% endwith %}
+
+  <h1>This is home page</h1>
+  <table border=1>
+    <tr>
+      <th>#ID</th>
+      <th>Application</th>
+      <th>Application Environment</th>
+      <th>User</th>
+      <th>Version</th>
+      <th>Server</th>
+      <th>Deployment date</th>
+    </tr>
+    {% for deploy in deploys: %}
+      <tr> 
+        <td>
+          {{ deploy.id }}
+        </td> 
+        <td>
+          {{ deploy.get_app().get_app().name }}
+        </td> 
+        <td>
+          {{ deploy.get_app().name }}
+        </td> 
+        <td>
+          {{ deploy.get_user().name }}
+        </td> 
+        <td>
+          {{ deploy.version }}
+        </td> 
+        <td>
+          {{ deploy.server }}
+        </td> 
+        <td>
+          {{ deploy.created_at }}
+        </td> 
+      </tr>
+    {% endfor %}
+  </table>
+{% endblock %}

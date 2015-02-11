@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <title>Grzyb - Login</title>
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}" media="screen" type="text/css" />
+
+</head>
+
+<body>
+
+  <html lang="en-US">
+  <head>
+
+    <meta charset="utf-8">
+
+    <title>Login</title>
+
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,700">
+
+    <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+ <![endif]-->
+
+  </head>
+
+  <body>
+
+    <div class="container">
+
+      <div id="login">
+
+        {% if error %}
+          <p style="color: red;"><strong>Error:</strong> {{ error }}</p>
+        {% endif %}
+
+        <form action="" method="post">
+
+          <fieldset class="clearfix">
+
+            <p><span class="fontawesome-user"></span><input type="text" name="username" value="{{ request.form.username }}" placeholder="Username" required></p>
+            <p><span class="fontawesome-lock"></span><input type="password" name="password" value="{{ request.form.password }}" placeholder="Password" required></p>
+            <p><input type="submit" value="Sign In"></p>
+
+          </fieldset>
+
+        </form>
+
+        {#<p>Not a member? <a href="">Sign up now</a><span class="fontawesome-arrow-right"></span></p>#}
+
+      </div> <!-- end login -->
+
+    </div>
+
+  </body>
+</html>
+
+</body>
+
+</html>

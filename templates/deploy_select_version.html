@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+{%block body %}
+  <h1>Stable versions for {{ app_server.get_app().name }}</h1>
+  {% for tag in tags: %}
+    <p>{{ tag }}</p>
+    <small>{{ tag.commit }}</small>
+    <a href="/deploy_details/{{app_server.id}}/{{tag}}">Select</a>
+  <hr>
+  {% endfor %}
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+{%block body %}
+  <h1>Latest stable versions: Administration Console</h1>
+  {% for tag in tags: %}
+    <p>{{ tag }}</p>
+    <small>{{ tag.commit }}</small>
+  {% endfor %}
+  <small></small>
+
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{%block body %}
+  <h1>Deployment details:</h1>
+    <p>Application: {{ app.get_app().name }}</p>
+    <p>Server: {{ app.name }}</p>
+    <p>Description: {{ app.get_app().description }}</p>
+    <p>Git repo: {{ app.get_app().repo_url }}</p>
+    <hr>
+    <p>Version: {{ version }}</p>
+    <p>Commit: {{ version.commit }}</p>
+    <hr>
+    <p>Deployment command: {{ app.deploy_command }}</p>
+    <p>Post deployment command: {{ app.post_deploy_command }}</p>
+    <p>Deploy configuration: {{ app.deploy_configuration }}</p>
+    <p>Server credentials: {{ app.server_credentials }}</p>
+    <a href="/deploy_final/{{app.id}}/{{version.name}}">Deploy this shit</a>
+
+{% endblock %}

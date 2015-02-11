@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+{%block body %}
+  <h1>Available applications to deploy</h1>
+  {% for app in apps: %}
+    <p>Application: {{ app.get_app().name }}</p>
+    <p>Server: {{ app.name }}</p>
+    <p>Description: {{ app.get_app().description }}</p>
+    <a href="deploy_app/{{app.id}}">Select</a>
+  {% endfor %}
+
+{% endblock %}
